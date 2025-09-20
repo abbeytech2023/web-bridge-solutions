@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { EnvelopeSimple, Phone, WhatsappLogo } from "phosphor-react";
 
-// New dark template with orangered + red accents
+// Dark template with orangered + red accents and icons in contact section
 
 export default function WebBridgeSolutions() {
   return (
@@ -37,7 +38,7 @@ function Header() {
           </a>
           <a
             href="#contact"
-            className="px-4 py-2 bg-gradient-to-r from-orange-600 to-red-500 text-white rounded-full hover:opacity-90 transition"
+            className="px-4 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full hover:opacity-90 transition"
           >
             Contact
           </a>
@@ -255,12 +256,26 @@ function Contact() {
         <p className="mt-4 text-gray-400">
           Let’s grow your business together. Reach out today.
         </p>
-        <div className="mt-10">
+        <div className="mt-10 space-y-6">
           <a
             href="mailto:hello@webbridgesolutions.com"
-            className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-medium hover:opacity-90 transition"
+            className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-medium hover:opacity-90 transition"
           >
-            Email Us
+            <EnvelopeSimple size={22} /> Email Us
+          </a>
+          <a
+            href="tel:+2348012345678"
+            className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-medium hover:opacity-90 transition"
+          >
+            <Phone size={22} /> Call: +234 801 234 5678
+          </a>
+          <a
+            href="https://wa.me/2348012345678"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-medium hover:opacity-90 transition"
+          >
+            <WhatsappLogo size={22} /> WhatsApp Us
           </a>
         </div>
       </div>
