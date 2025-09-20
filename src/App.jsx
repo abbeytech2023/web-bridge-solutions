@@ -258,19 +258,19 @@ function Contact() {
         </p>
         <div className="mt-10 space-y-6">
           <a
-            href="mailto:hello@webbridgesolutions.com"
+            href="mailto:olanipekunabbey@gmail.com"
             className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-medium hover:opacity-90 transition"
           >
             <EnvelopeSimple size={22} /> Email Us
           </a>
           <a
-            href="tel:+2348012345678"
+            href="tel:+2349069310075"
             className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-medium hover:opacity-90 transition"
           >
-            <Phone size={22} /> Call: +234 801 234 5678
+            <Phone size={22} /> Call: +234 9069310075
           </a>
           <a
-            href="https://wa.me/2348012345678"
+            href="https://wa.me/2348162010121"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-full font-medium hover:opacity-90 transition"
