@@ -192,17 +192,17 @@ function Pricing() {
   const plans = [
     {
       name: "Starter",
-      price: "₦65,000",
-      perks: ["Google Profile Setup", "Single-page Website", "Basic SEO"],
+      price: "₦99,999",
+      perks: ["Google Profile Setup", "Single-page Website", "Custom Domain"],
     },
     {
       name: "Standard",
-      price: "₦140,000",
-      perks: ["Multi-page Website", "SEO Optimization", "Custom Domain"],
+      price: "₦200,000",
+      perks: ["Multi-page Website", "Google profile Setup", "Custom Domain"],
     },
     {
       name: "Premium",
-      price: "₦280,000",
+      price: "₦700,000",
       perks: ["E-commerce/Booking Site", "Advanced SEO", "Monthly Reports"],
     },
   ];
