@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 import { EnvelopeSimple, Phone, WhatsappLogo } from "phosphor-react";
 
-// Dark template with orangered + red accents and icons in contact section
+// === Enhanced Web Bridge Solutions Landing Page ===
+// Includes: mobile nav, SEO meta, smooth scroll, contact form, mobile app section
 
 export default function WebBridgeSolutions() {
   return (
-    <div className="min-h-screen bg-black text-gray-100 font-sans">
+    <div className="min-h-screen bg-black text-gray-100 font-sans scroll-smooth">
+      <Helmet>
+        <title>Web Bridge Solutions | Google & Website Experts</title>
+        <meta
+          name="description"
+          content="We build websites, mobile apps, and Google Business profiles that help Nigerian businesses grow online."
+        />
+      </Helmet>
+
       <Header />
       <Hero />
       <About />
       <Services />
+      <MobileApps />
       <Testimonials />
       <Pricing />
       <Contact />
@@ -20,18 +31,25 @@ export default function WebBridgeSolutions() {
 }
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="bg-black/80 backdrop-blur sticky top-0 z-50 border-b border-red-900/40">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <h1 className="text-lg md:text-2xl font-bold text-orange-500 tracking-wide">
           Web Bridge Solutions
         </h1>
+
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6 text-sm font-medium">
           <a href="#about" className="hover:text-red-400 transition">
             About
           </a>
           <a href="#services" className="hover:text-red-400 transition">
             Services
+          </a>
+          <a href="#mobileapps" className="hover:text-red-400 transition">
+            Mobile Apps
           </a>
           <a href="#pricing" className="hover:text-red-400 transition">
             Pricing
@@ -43,7 +61,33 @@ function Header() {
             Contact
           </a>
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-orange-500 text-3xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <nav className="md:hidden bg-black border-t border-red-900/50 flex flex-col items-center py-4 space-y-4 text-sm">
+          {["About", "Services", "Mobile Apps", "Pricing", "Contact"].map(
+            (item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(" ", "")}`}
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-red-400 transition"
+              >
+                {item}
+              </a>
+            )
+          )}
+        </nav>
+      )}
     </header>
   );
 }
@@ -63,10 +107,10 @@ function Hero() {
         </span>
       </motion.h2>
       <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
-        We help businesses shine online with Google Business setup and modern
-        websites that convert visitors into clients.
+        We help businesses shine online with Google Business setup, modern
+        websites, and mobile applications that convert visitors into clients.
       </p>
-      <div className="mt-10 flex justify-center gap-4">
+      <div className="mt-10 flex justify-center gap-4 flex-wrap">
         <a
           href="#contact"
           className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-medium hover:opacity-90 transition"
@@ -94,8 +138,8 @@ function About() {
         <h3 className="text-4xl font-bold text-white">Who We Are</h3>
         <p className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg">
           At Web Bridge Solutions, we bridge the gap between businesses and
-          their digital growth. With expertise in Google optimization and
-          website design, we build solutions that last.
+          their digital growth. From Google optimization to website and app
+          development, we create digital solutions that last.
         </p>
       </div>
     </section>
@@ -141,6 +185,34 @@ function Services() {
               <p className="mt-3 text-sm text-gray-400">{s.desc}</p>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MobileApps() {
+  return (
+    <section
+      id="mobileapps"
+      className="py-24 bg-gray-950 border-t border-red-900/30 text-center"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <h3 className="text-4xl font-bold text-white">
+          Mobile App Development
+        </h3>
+        <p className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg">
+          Expand your reach with mobile applications that work across Android
+          and iOS. We design smooth, fast, and scalable apps using React Native
+          and Expo for startups and businesses.
+        </p>
+        <div className="mt-10">
+          <a
+            href="#contact"
+            className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-medium hover:opacity-90 transition"
+          >
+            Let’s Build Your App
+          </a>
         </div>
       </div>
     </section>
@@ -256,6 +328,8 @@ function Contact() {
         <p className="mt-4 text-gray-400">
           Let’s grow your business together. Reach out today.
         </p>
+
+        {/* Contact Buttons */}
         <div className="mt-10 space-y-6">
           <a
             href="mailto:olanipekunabbey@gmail.com"
@@ -278,6 +352,31 @@ function Contact() {
             <WhatsappLogo size={22} /> WhatsApp Us
           </a>
         </div>
+
+        {/* Contact Form */}
+        <form className="space-y-4 max-w-md mx-auto mt-10">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white"
+          />
+          <textarea
+            placeholder="Your Message"
+            rows="4"
+            className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white"
+          ></textarea>
+          <button
+            type="submit"
+            className="w-full py-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-full font-medium hover:opacity-90 transition"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
   );
