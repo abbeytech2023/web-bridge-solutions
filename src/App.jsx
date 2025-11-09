@@ -354,7 +354,7 @@ function Contact() {
         </div>
 
         {/* Contact Form */}
-        <form className="space-y-4 max-w-md mx-auto mt-10">
+        {/* <form className="space-y-4 max-w-md mx-auto mt-10">
           <input
             type="text"
             placeholder="Your Name"
@@ -376,7 +376,7 @@ function Contact() {
           >
             Send Message
           </button>
-        </form>
+        </form> */}
       </div>
     </section>
   );
