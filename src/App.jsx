@@ -1,10 +1,8 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { EnvelopeSimple, Phone, WhatsappLogo } from "phosphor-react";
-
-// === Enhanced Web Bridge Solutions Landing Page ===
-// Includes: mobile nav, SEO meta, smooth scroll, contact form, mobile app section
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function WebBridgeSolutions() {
   return (
@@ -25,11 +23,13 @@ export default function WebBridgeSolutions() {
       <Testimonials />
       <Pricing />
       <Contact />
+      <SocialMedia />
       <Footer />
     </div>
   );
 }
 
+// ---------------- Header ----------------
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -92,6 +92,7 @@ function Header() {
   );
 }
 
+// ---------------- Hero ----------------
 function Hero() {
   return (
     <section className="relative text-center py-28 px-6 bg-gradient-to-b from-black via-gray-900 to-black">
@@ -108,7 +109,8 @@ function Hero() {
       </motion.h2>
       <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
         We help businesses shine online with Google Business setup, modern
-        websites, and mobile applications that convert visitors into clients.
+        websites, AI-powered ads, and mobile applications that convert visitors
+        into clients.
       </p>
       <div className="mt-10 flex justify-center gap-4 flex-wrap">
         <a
@@ -128,6 +130,7 @@ function Hero() {
   );
 }
 
+// ---------------- About ----------------
 function About() {
   return (
     <section
@@ -138,14 +141,15 @@ function About() {
         <h3 className="text-4xl font-bold text-white">Who We Are</h3>
         <p className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg">
           At Web Bridge Solutions, we bridge the gap between businesses and
-          their digital growth. From Google optimization to website and app
-          development, we create digital solutions that last.
+          their digital growth. From Google optimization to websites, AI video
+          ads, and app development, we create digital solutions that last.
         </p>
       </div>
     </section>
   );
 }
 
+// ---------------- Services ----------------
 function Services() {
   const services = [
     {
@@ -164,6 +168,14 @@ function Services() {
       title: "Continuous Support",
       desc: "Stay ahead with updates, fixes, and ongoing support.",
     },
+    {
+      title: "AI Ads Video Promotion",
+      desc: "Create engaging AI-generated promotional videos for businesses, products, and services using modern AI tools like Heygen and Kling.",
+    },
+    {
+      title: "AI Ads Video for Your Business",
+      desc: "We produce compelling AI-powered advertisement videos tailored for your brand, helping you reach more customers and boost sales.",
+    },
   ];
 
   return (
@@ -172,7 +184,8 @@ function Services() {
         <h3 className="text-4xl font-bold text-center text-white">
           Our Services
         </h3>
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((s, i) => (
             <motion.div
               key={i}
@@ -191,6 +204,7 @@ function Services() {
   );
 }
 
+// ---------------- Mobile Apps ----------------
 function MobileApps() {
   return (
     <section
@@ -219,6 +233,7 @@ function MobileApps() {
   );
 }
 
+// ---------------- Testimonials ----------------
 function Testimonials() {
   const testimonials = [
     {
@@ -260,6 +275,7 @@ function Testimonials() {
   );
 }
 
+// ---------------- Pricing ----------------
 function Pricing() {
   const plans = [
     {
@@ -317,6 +333,7 @@ function Pricing() {
   );
 }
 
+// ---------------- Contact ----------------
 function Contact() {
   return (
     <section
@@ -352,36 +369,47 @@ function Contact() {
             <WhatsappLogo size={22} /> WhatsApp Us
           </a>
         </div>
-
-        {/* Contact Form */}
-        {/* <form className="space-y-4 max-w-md mx-auto mt-10">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white"
-          />
-          <textarea
-            placeholder="Your Message"
-            rows="4"
-            className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white"
-          ></textarea>
-          <button
-            type="submit"
-            className="w-full py-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-full font-medium hover:opacity-90 transition"
-          >
-            Send Message
-          </button>
-        </form> */}
       </div>
     </section>
   );
 }
 
+// ---------------- Social Media ----------------
+function SocialMedia() {
+  return (
+    <section className="py-20 bg-black" id="socials">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <h3 className="text-4xl font-bold text-white">Connect With Us</h3>
+        <p className="text-gray-400 mt-3">
+          Follow us on social media for updates, offers, and tips.
+        </p>
+
+        <div className="flex justify-center gap-8 mt-10">
+          <a
+            href="https://www.facebook.com/share/1A26hFgU4W/"
+            className="p-4 bg-gray-900 rounded-full border border-gray-800 hover:border-orange-500 transition hover:scale-110"
+          >
+            <Facebook className="w-7 h-7 text-white" />
+          </a>
+          <a
+            href="#"
+            className="p-4 bg-gray-900 rounded-full border border-gray-800 hover:border-orange-500 transition hover:scale-110"
+          >
+            <Instagram className="w-7 h-7 text-white" />
+          </a>
+          <a
+            href="#"
+            className="p-4 bg-gray-900 rounded-full border border-gray-800 hover:border-orange-500 transition hover:scale-110"
+          >
+            <Twitter className="w-7 h-7 text-white" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------------- Footer ----------------
 function Footer() {
   return (
     <footer className="bg-black border-t border-red-900/30 py-6 text-center text-sm text-gray-500">
